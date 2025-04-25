@@ -1,0 +1,50 @@
+:root {
+    --violeta: #943FFF;
+    --azul: #35A7FF;
+    --verde: #CCFF40;
+    --branco: #ffffff;
+    --cinza-claro: #f0f0f0;
+}
+
+body {
+    font-family: 'Posterama 2001', sans-serif;
+    background-color: var(--cinza-claro);
+    margin: 0;
+}
+
+header {
+    background-color: var(--violeta);
+    color: var(--branco);
+    padding: 1rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    padding: 0;
+}
+
+nav ul li a {
+    color: var(--branco);
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: var(--verde); /* Cor no hover */
+}
+
+#hero {
+    background-color: var(--azul);
+    color: var(--branco);
+    text-align: center;
+    padding: 5rem 1rem;
+}
+
+#hero h1 {
+    font-size: 3rem;
+}
+
+#hero p {
+    font-size: 1.5rem;
+}
