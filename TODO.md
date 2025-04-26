@@ -76,3 +76,7 @@
 - [ ] Corrigir links das redes sociais no footer (estão href="#").
 - [ ] Conferir telefones, e-mails e endereços (estão genéricos).
 - [ ] Atualizar links de políticas, termos, carreiras, blog (estão placeholders #).
+
+
+
+Adicionar hover nos cards

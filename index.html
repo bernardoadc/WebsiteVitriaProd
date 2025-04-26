@@ -254,11 +254,14 @@
         }
 
         .logo {
-            width: 2.4rem;
+            width: 3rem;
             font-size: 2.4rem;
             font-weight: 700;
             color: var(--primary);
             font-family: 'Posterama 2001 W04 Regular', sans-serif;
+            display: flex;
+            align-items: center; /* Alinha verticalmente */
+            gap: 0.8rem;            /* Espaço entre a imagem e o texto */
         }
 
         .logo span {
@@ -316,7 +319,7 @@
             align-items: center;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, rgba(250, 251, 255, 0.9), rgba(250, 251, 255, 0.85)), url('/api/placeholder/1920/1080') no-repeat center/cover;
+            background: linear-gradient(135deg, rgba(250, 251, 255, 0.8), rgba(250, 251, 255, 0.2)), url('./images/hexagons.png') no-repeat center/cover;
         }
 
         .hero-content {
@@ -357,6 +360,7 @@
         .about {
             position: relative;
             overflow: hidden;
+            background: linear-gradient(135deg, rgba(250, 251, 255, 0.8), rgba(250, 251, 255, 0.6)), url('./images/20250426_0402_Sleek\ Modern\ Office_simple_compose_01jsree806ebvvy44d0t7j36b6.gif') no-repeat center/cover;
         }
 
         .about-grid {
@@ -388,8 +392,9 @@
         }
 
         .about-card:hover {
-            transform: translateY(-1rem);
-            box-shadow: 0 1.5rem 4rem rgba(106, 100, 241, 0.1);
+            transform: translateY(-1.5rem) scale(1.1) !important;
+            box-shadow: 0 2rem 5rem rgba(148, 63, 255, 0.3); /* usa o Vitria Violeta como base */
+            transition: var(--transition), transform 0.3s ease, box-shadow 0.3s ease !important;
         }
 
         .about-card:hover::before {
@@ -409,7 +414,7 @@
 
         /* Why Choose Us Section */
         .why-us {
-            background: linear-gradient(135deg, rgba(250, 251, 255, 0.92), rgba(250, 251, 255, 0.92)), url('/api/placeholder/1920/1080') no-repeat center/cover;
+            background: linear-gradient(135deg, rgba(250, 251, 255, 0.8), rgba(250, 251, 255, 0.1)), url('./images/20250426_0343_Neon Data Flow_simple_compose_01jsrdaxf1fe1vcf4zc60v5gee.png') no-repeat center/cover;
         }
 
         .why-us-container {
@@ -428,8 +433,9 @@
         }
 
         .why-us-item:hover {
-            transform: translateY(-0.8rem);
-            box-shadow: 0 1.5rem 4rem rgba(106, 100, 241, 0.1);
+            transform: translateY(-1.5rem) scale(1.1) !important;
+            box-shadow: 0 2rem 5rem rgba(148, 63, 255, 0.3); /* usa o Vitria Violeta como base */
+            transition: var(--transition), transform 0.3s ease, box-shadow 0.3s ease !important;
         }
 
         .why-us-icon {
@@ -451,6 +457,10 @@
         }
 
         /* Process Section */
+        .process {
+            background: linear-gradient(135deg, rgba(250, 251, 255, 0.2), rgba(250, 251, 255, 0.5)), url('./images/20250426_0348_Glowing\ Hexagon\ Mesh_simple_compose_01jsrdnfc5fhjvw5bb8z0yzef2.png') no-repeat center/cover;
+        }
+
         .process-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
@@ -469,8 +479,9 @@
         }
 
         .process-step:hover {
-            transform: translateY(-0.8rem);
-            box-shadow: 0 1.5rem 4rem rgba(106, 100, 241, 0.1);
+            transform: translateY(-1.5rem) scale(1.1) !important;
+            box-shadow: 0 2rem 5rem rgba(148, 63, 255, 0.3); /* usa o Vitria Violeta como base */
+            transition: var(--transition), transform 0.3s ease, box-shadow 0.3s ease !important;
         }
 
         .process-step::before {
@@ -504,6 +515,8 @@
             padding: 8rem 0;
             text-align: center;
             color: var(--light);
+            /* background: linear-gradient(135deg, rgba(250, 251, 255, 0.2), rgba(250, 251, 255, 0)), url('./images/AI.png') no-repeat bottom; */
+            background: linear-gradient(135deg, rgba(250, 251, 255, 0.2), rgba(250, 251, 255, 0)), no-repeat cover;
         }
 
         .cta h2 {
@@ -528,6 +541,10 @@
         }
 
         /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, rgba(250, 251, 255, 0.9), rgba(250, 251, 255, 0)), url('./images/office.png') no-repeat bottom;
+        }
+
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
@@ -600,12 +617,14 @@
         }
 
         .footer-logo {
-            width: 2.4rem;
+            width: 3rem;
             font-size: 2.4rem;
             font-weight: 700;
             color: var(--light);
             margin-bottom: 2rem;
-            display: inline-block;
+            display: flex;
+            align-items: center; /* Alinha verticalmente */
+            gap: 0.8rem;            /* Espaço entre a imagem e o texto */
             font-family: 'Posterama 2001 W04 Regular', sans-serif;
         }
 
@@ -1094,6 +1113,9 @@
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        import { SpeedInsights } from "@vercel/speed-insights/next"
+    </script>
     <script>
         // Initialize AOS
         AOS.init({
