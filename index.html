@@ -3,24 +3,1216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vitria</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>Vitria | Soluções Estratégicas em Inteligência Artificial</title>
+    <meta name="description" content="Transformamos dados em resultados com soluções práticas e estratégicas em Inteligência Artificial. Conheça a Vitria.">
+
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="Vitria | Soluções Estratégicas em IA">
+    <meta property="og:description" content="Transformamos dados em resultados com soluções práticas e estratégicas em Inteligência Artificial.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vitria.tech">
+    <meta property="og:image" content="img/og-image.jpg">
+
+    <!-- Favicon settings would go here in production -->
+    <link rel="icon" href="/api/placeholder/32/32" type="image/png">
+
+    <!-- Preload Font -->
+    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+    <!-- External Libraries -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+
+    <style>
+        /* Custom Font - In production, you would use the actual Posterama font */
+        @font-face {
+            font-family: 'Posterama';
+            src: local('Arial');
+            font-display: swap;
+        }
+
+        /* Reset & Base Styles */
+        :root {
+            /* Vitria Color Palette */
+            --primary: #6A64F1;      /* Violeta principal */
+            --primary-light: #8A84FF;
+            --secondary: #4361EE;    /* Azul */
+            --secondary-light: #738AFE;
+            --accent: #3CBBB1;       /* Verde */
+            --background: #FAFBFF;
+            --dark: #1A1A2E;
+            --light: #FFFFFF;
+            --gray: #5A5A75;
+            --gray-light: #E9ECEF;
+
+            /* Typography */
+            --body-font: 'Posterama', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+            /* Transitions */
+            --transition: all 0.3s ease-in-out;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 62.5%; /* 10px = 1rem */
+        }
+
+        body {
+            font-family: var(--body-font);
+            font-size: 1.6rem;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary);
+            transition: var(--transition);
+        }
+
+        a:hover {
+            color: var(--primary-light);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        section {
+            padding: 10rem 0;
+            position: relative;
+        }
+
+        section:nth-child(even) {
+            background-color: var(--light);
+        }
+
+        section:nth-child(odd) {
+            background-color: var(--background);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 120rem;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .flex {
+            display: flex;
+        }
+
+        .flex-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .flex-between {
+            justify-content: space-between;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            color: var(--dark);
+        }
+
+        h1 {
+            font-size: 4.8rem;
+        }
+
+        h2 {
+            font-size: 3.6rem;
+            margin-bottom: 4rem;
+        }
+
+        h3 {
+            font-size: 2.4rem;
+        }
+
+        p {
+            margin-bottom: 2rem;
+        }
+
+        .subtitle {
+            font-size: 2rem;
+            color: var(--gray);
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            position: relative;
+            margin-bottom: 6rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -1.2rem;
+            width: 6rem;
+            height: 0.4rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transform: translateX(-50%);
+            border-radius: 2rem;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            border-radius: 5rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-size: 1.6rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--light);
+            box-shadow: 0 0.4rem 1.5rem rgba(106, 100, 241, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(90deg, var(--primary-light), var(--secondary-light));
+            color: var(--light);
+            transform: translateY(-0.3rem);
+            box-shadow: 0 0.5rem 2rem rgba(106, 100, 241, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 0.2rem solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary);
+            color: var(--light);
+            transform: translateY(-0.3rem);
+            box-shadow: 0 0.5rem 2rem rgba(106, 100, 241, 0.4);
+        }
+
+        .btn-icon {
+            margin-left: 1rem;
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 2rem 0;
+            z-index: 1000;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 0.2rem 1rem rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        header.scrolled {
+            padding: 1.5rem 0;
+            background-color: rgba(255, 255, 255, 0.98);
+        }
+
+        .logo {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        nav ul {
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 3rem;
+        }
+
+        nav ul li a {
+            color: var(--dark);
+            font-weight: 600;
+            font-size: 1.6rem;
+            position: relative;
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 0%;
+            height: 0.2rem;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active {
+            color: var(--primary);
+        }
+
+        nav ul li a:hover::after,
+        nav ul li a.active::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            cursor: pointer;
+            font-size: 2.4rem;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            min-height: 70rem;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(250, 251, 255, 0.9), rgba(250, 251, 255, 0.85)), url('/api/placeholder/1920/1080') no-repeat center/cover;
+        }
+
+        .hero-content {
+            max-width: 70rem;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 5.2rem;
+            margin-bottom: 2rem;
+            color: var(--dark);
+        }
+
+        .hero-subtitle {
+            font-size: 2.2rem;
+            margin-bottom: 4rem;
+            color: var(--gray);
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        /* Digital Particles Background */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        /* About Section */
+        .about {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 4rem;
+        }
+
+        .about-card {
+            padding: 3rem;
+            border-radius: 1rem;
+            background-color: var(--light);
+            box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .about-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0.5rem;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            transition: var(--transition);
+        }
+
+        .about-card:hover {
+            transform: translateY(-1rem);
+            box-shadow: 0 1.5rem 4rem rgba(106, 100, 241, 0.1);
+        }
+
+        .about-card:hover::before {
+            width: 0.8rem;
+        }
+
+        .about-icon {
+            font-size: 4rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+        }
+
+        .about-card h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Why Choose Us Section */
+        .why-us {
+            background: linear-gradient(135deg, rgba(250, 251, 255, 0.92), rgba(250, 251, 255, 0.92)), url('/api/placeholder/1920/1080') no-repeat center/cover;
+        }
+
+        .why-us-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+            gap: 3rem;
+        }
+
+        .why-us-item {
+            background-color: var(--light);
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .why-us-item:hover {
+            transform: translateY(-0.8rem);
+            box-shadow: 0 1.5rem 4rem rgba(106, 100, 241, 0.1);
+        }
+
+        .why-us-icon {
+            width: 8rem;
+            height: 8rem;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.6rem;
+            color: var(--light);
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+
+        .why-us-item h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Process Section */
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 4rem;
+            counter-reset: step-counter;
+        }
+
+        .process-step {
+            text-align: center;
+            position: relative;
+            padding: 4rem 2rem 2rem;
+            background-color: var(--light);
+            border-radius: 1rem;
+            box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+
+        .process-step:hover {
+            transform: translateY(-0.8rem);
+            box-shadow: 0 1.5rem 4rem rgba(106, 100, 241, 0.1);
+        }
+
+        .process-step::before {
+            counter-increment: step-counter;
+            content: counter(step-counter);
+            position: absolute;
+            top: -2.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 5rem;
+            height: 5rem;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            box-shadow: 0 0.5rem 1.5rem rgba(106, 100, 241, 0.3);
+        }
+
+        .process-step h3 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            padding: 8rem 0;
+            text-align: center;
+            color: var(--light);
+        }
+
+        .cta h2 {
+            color: var(--light);
+            margin-bottom: 2rem;
+        }
+
+        .cta .subtitle {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 4rem;
+        }
+
+        .cta .btn-outline {
+            background: transparent;
+            color: var(--light);
+            border: 0.2rem solid var(--light);
+        }
+
+        .cta .btn-outline:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 2rem;
+        }
+
+        .contact-icon {
+            width: 5rem;
+            height: 5rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--light);
+            flex-shrink: 0;
+        }
+
+        .contact-details h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-map {
+            border-radius: 1rem;
+            overflow: hidden;
+            box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.1);
+            height: 30rem;
+            background: #f5f5f5 url('/api/placeholder/600/400') no-repeat center/cover;
+        }
+
+        .contact-qr {
+            padding: 2rem;
+            background-color: var(--light);
+            border-radius: 1rem;
+            box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+
+        .contact-qr img {
+            width: 15rem;
+            height: 15rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 4rem 0;
+            background-color: var(--dark);
+            color: var(--light);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+            gap: 4rem;
+        }
+
+        .footer-logo {
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--light);
+            margin-bottom: 2rem;
+            display: inline-block;
+        }
+
+        .footer-logo span {
+            color: var(--accent);
+        }
+
+        .footer-nav h4 {
+            color: var(--light);
+            font-size: 1.8rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+
+        .footer-nav h4::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            width: 4rem;
+            height: 0.3rem;
+            background: var(--accent);
+        }
+
+        .footer-nav ul li {
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            transition: var(--transition);
+        }
+
+        .footer-nav ul li a:hover {
+            color: var(--accent);
+            margin-left: 0.5rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .social-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--light);
+            font-size: 1.8rem;
+            transition: var(--transition);
+        }
+
+        .social-icon:hover {
+            background-color: var(--primary);
+            transform: translateY(-0.5rem);
+        }
+
+        .footer-bottom {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 0.1rem solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.4rem;
+        }
+
+        /* Floating Contact Button */
+        .floating-contact {
+            position: fixed;
+            bottom: 3rem;
+            right: 3rem;
+            z-index: 99;
+        }
+
+        .floating-contact .btn {
+            width: 6rem;
+            height: 6rem;
+            border-radius: 50%;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            box-shadow: 0 0.5rem 2rem rgba(106, 100, 241, 0.3);
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 3rem;
+            right: 10rem;
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 50%;
+            background-color: var(--primary);
+            color: var(--light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            cursor: pointer;
+            box-shadow: 0 0.5rem 2rem rgba(106, 100, 241, 0.3);
+            transition: var(--transition);
+            opacity: 0;
+            visibility: hidden;
+            z-index: 99;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            background-color: var(--primary-light);
+            transform: translateY(-0.5rem);
+        }
+
+        /* Media Queries */
+        @media screen and (max-width: 991px) {
+            html {
+                font-size: 60%;
+            }
+
+            .container {
+                padding: 0 4rem;
+            }
+
+            .hero-title {
+                font-size: 4.6rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 8rem;
+                left: 0;
+                right: 0;
+                width: 100%;
+                background-color: var(--light);
+                padding: 2rem 0;
+                box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                transform: translateY(-150%);
+                transition: var(--transition);
+                opacity: 0;
+                visibility: hidden;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+
+            .nav-links li {
+                margin: 1.5rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            html {
+                font-size: 57.5%;
+            }
+
+            .container {
+                padding: 0 3rem;
+            }
+
+            section {
+                padding: 8rem 0;
+            }
+
+            .hero-title {
+                font-size: 4rem;
+            }
+
+            .hero-subtitle {
+                font-size: 2rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 25rem;
+            }
+
+            .hero-btns .btn:not(:last-child) {
+                margin-bottom: 1.5rem;
+            }
+
+            .about-grid,
+            .why-us-container,
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-map {
+                height: 25rem;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            html {
+                font-size: 55%;
+            }
+
+            .container {
+                padding: 0 2rem;
+            }
+
+            .hero-title {
+                font-size: 3.6rem;
+            }
+
+            .section-title {
+                font-size: 3rem;
+            }
+
+            .floating-contact,
+            .back-to-top {
+                bottom: 2rem;
+                right: 2rem;
+            }
+
+            .back-to-top {
+                right: 8rem;
+            }
+        }
+    </style>
 </head>
-<body>    <header>
-        <nav>
-            <ul>
-                <li><a href="#hero">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#services">Serviços</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-        </nav>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container flex flex-between">
+            <a href="#" class="logo">
+                Vitria<span>.</span>
+            </a>
+            <nav>
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="flex nav-links">
+                    <li><a href="#home" class="active">Início</a></li>
+                    <li><a href="#about">O que fazemos</a></li>
+                    <li><a href="#why-us">Por que a Vitria</a></li>
+                    <li><a href="#process">Como atuamos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <section id="hero">
-        <h1>Bem-vindo à Vitria</h1>
-        <p>Soluções em Inteligência Artificial</p>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content" data-aos="fade-up" data-aos-delay="200">
+                <h1 class="hero-title">Soluções Inteligentes para Negócios Reais</h1>
+                <p class="hero-subtitle">Transformamos dados em resultados com IA aplicada às suas necessidades</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/5511999999999" class="btn btn-primary">
+                        Fale com a gente <i class="fab fa-whatsapp btn-icon"></i>
+                    </a>
+                    <a href="#about" class="btn btn-outline">Conheça nosso trabalho</a>
+                </div>
+            </div>
+        </div>
+        <div class="particles"></div>
     </section>
-    <!-- Outras seções aqui -->
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">O que fazemos</h2>
+            <div class="about-grid">
+                <div class="about-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="about-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Inteligência Artificial Estratégica</h3>
+                    <p>Transformamos conceitos complexos de IA em soluções tangíveis e aplicáveis ao seu negócio. Implantamos modelos de machine learning personalizados para resolver problemas específicos da sua empresa.</p>
+                </div>
+                <div class="about-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="about-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Análise de Dados Preditiva</h3>
+                    <p>Identifique padrões ocultos e antecipe tendências de mercado com nosso sistema de análise preditiva. Transformamos seus dados em insights acionáveis para decisões mais inteligentes.</p>
+                </div>
+                <div class="about-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="about-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Automação Inteligente de Processos</h3>
+                    <p>Reduza custos e aumente a eficiência com nossas soluções de automação que aprendem e se adaptam às necessidades do seu negócio. Do básico ao avançado, automatizamos processos com inteligência.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="why-us">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Por que escolher a Vitria</h2>
+            <div class="why-us-container">
+                <div class="why-us-item" data-aos="fade-up" data-aos-delay="100">
+                    <div class="why-us-icon">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3>Abordagem Personalizada</h3>
+                    <p>Desenvolvemos soluções exclusivas para cada cliente, adaptando a tecnologia às necessidades específicas do seu negócio, não o contrário.</p>
+                </div>
+                <div class="why-us-item" data-aos="fade-up" data-aos-delay="200">
+                    <div class="why-us-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>Conhecimento Especializado</h3>
+                    <p>Nossa equipe combina expertise em ciência de dados, engenharia de software e inteligência artificial com conhecimento de negócios.</p>
+                </div>
+                <div class="why-us-item" data-aos="fade-up" data-aos-delay="300">
+                    <div class="why-us-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Resultados Rápidos</h3>
+                    <p>Implementação ágil com foco em entregar valor desde o início, permitindo que você veja os resultados da IA aplicada ao seu negócio em semanas, não meses.</p>
+                </div>
+                <div class="why-us-item" data-aos="fade-up" data-aos-delay="400">
+                    <div class="why-us-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Segurança e Confiabilidade</h3>
+                    <p>Seus dados estão seguros conosco. Trabalhamos com os mais altos padrões de segurança e privacidade de dados, seguindo as melhores práticas do mercado.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section id="process" class="process">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Como atuamos</h2>
+            <div class="process-steps">
+                <div class="process-step" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Diagnóstico</h3>
+                    <p>Entendemos profundamente seu negócio, identificamos oportunidades e desafios onde a IA pode gerar valor significativo.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="200">
+                    <h3>Estratégia</h3>
+                    <p>Desenhamos um plano de ação personalizado com soluções de IA alinhadas aos seus objetivos estratégicos e indicadores de sucesso.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="300">
+                    <h3>Implementação</h3>
+                    <p>Desenvolvemos e implementamos as soluções com metodologias ágeis, garantindo entregas incrementais e feedback contínuo.</p>
+                </div>
+                <div class="process-step" data-aos="fade-up" data-aos-delay="400">
+                    <h3>Evolução</h3>
+                    <p>Monitoramos, refinamos e expandimos as soluções continuamente, maximizando o ROI e adaptando às mudanças do seu negócio.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta">
+        <div class="container">
+            <h2 data-aos="fade-up">Pronto para transformar seu negócio com IA?</h2>
+            <p class="subtitle" data-aos="fade-up" data-aos-delay="100">Vamos conversar sobre como podemos aplicar inteligência artificial para resolver seus desafios específicos.</p>
+            <a href="https://wa.me/5511999999999" class="btn btn-outline" data-aos="fade-up" data-aos-delay="200">
+                Iniciar uma conversa <i class="fab fa-whatsapp btn-icon"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title text-center" data-aos="fade-up">Contato</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Nosso Escritório</h3>
+                            <p>Av. Paulista, 1000 - Bela Vista<br>São Paulo - SP, 01310-100</p>
+                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>E-mail</h3>
+                            <p>contato@vitria.ai</p>
+                        </div>
+                    </div>
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Telefone</h3>
+                            <p>+55 (11) 99999-9999</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-right">
+                    <div class="contact-map" data-aos="fade-up" data-aos-delay="100">
+                        <!-- Mapa seria carregado aqui em produção -->
+                    </div>
+                    <div class="contact-qr" data-aos="fade-up" data-aos-delay="200">
+                        <img src="/api/placeholder/200/200" alt="QR Code WhatsApp">
+                        <h3>Fale conosco via WhatsApp</h3>
+                        <p>Escaneie o QR code ou clique no botão abaixo</p>
+                        <a href="https://wa.me/5511999999999" class="btn btn-primary">
+                            Iniciar conversa <i class="fab fa-whatsapp btn-icon"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo">Vitria<span>.</span></a>
+                    <p>Transformamos dados em resultados com soluções práticas e estratégicas em Inteligência Artificial.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="footer-nav">
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">O que fazemos</a></li>
+                        <li><a href="#why-us">Por que a Vitria</a></li>
+                        <li><a href="#process">Como atuamos</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                    </ul>
+                </div>
+                <div class="footer-nav">
+                    <h4>Links Úteis</h4>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Vitria. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating Contact Button -->
+    <div class="floating-contact">
+        <a href="https://wa.me/5511999999999" class="btn btn-primary">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </div>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease',
+            once: true,
+            offset: 100
+        });
+
+        $(document).ready(function() {
+            // Mobile Menu Toggle
+            $('.mobile-menu-btn').on('click', function() {
+                $('.nav-links').toggleClass('active');
+                $(this).find('i').toggleClass('fa-bars fa-times');
+            });
+
+            // Close mobile menu when clicking on a nav link
+            $('.nav-links a').on('click', function() {
+                $('.nav-links').removeClass('active');
+                $('.mobile-menu-btn').find('i').removeClass('fa-times').addClass('fa-bars');
+            });
+
+            // Sticky Header
+            $(window).on('scroll', function() {
+                if ($(this).scrollTop() > 100) {
+                    $('#header').addClass('scrolled');
+                } else {
+                    $('#header').removeClass('scrolled');
+                }
+            });
+
+            // Back to Top Button
+            $(window).on('scroll', function() {
+                if ($(this).scrollTop() > 300) {
+                    $('.back-to-top').addClass('show');
+                } else {
+                    $('.back-to-top').removeClass('show');
+                }
+            });
+
+            $('.back-to-top').on('click', function() {
+                $('html, body').animate({scrollTop: 0}, 800);
+                return false;
+            });
+
+            // Smooth Scrolling for anchor links
+            $('a[href*="#"]:not([href="#"])').on('click', function() {
+                if (location.pathname.replace(/^\//, '') === this.pathname.replace(/^\//, '') && location.hostname === this.hostname) {
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    if (target.length) {
+                        $('html, body').animate({
+                            scrollTop: target.offset().top - 70
+                        }, 800);
+                        return false;
+                    }
+                }
+            });
+
+            // Active menu state on scroll
+            $(window).on('scroll', function() {
+                var scrollDistance = $(window).scrollTop();
+
+                $('section').each(function(i) {
+                    if ($(this).position().top - 100 <= scrollDistance) {
+                        $('.nav-links a.active').removeClass('active');
+                        $('.nav-links a').eq(i).addClass('active');
+                    }
+                });
+            });
+
+            // Simple animation for particles background
+            createParticles();
+
+            // Easter egg - Console message for developers
+            console.log("%c👋 Olá, dev curioso!", "font-size: 20px; font-weight: bold; color: #6A64F1;");
+            console.log("%cVocê gosta de desvendar códigos? Nós também.", "color: #6a0dad; font-size: 18px; font-weight: bold;");
+        });
+
+        // Create digital particles background
+        function createParticles() {
+            const particlesDiv = document.querySelector('.particles');
+            const particlesCount = 30;
+
+            for (let i = 0; i < particlesCount; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 6 + 1 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.backgroundColor = 'rgba(106, 100, 241, ' + (Math.random() * 0.5 + 0.1) + ')';
+                particle.style.borderRadius = '50%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animation = 'floatParticle ' + (Math.random() * 15 + 10) + 's linear infinite';
+                particle.style.opacity = Math.random() * 0.8;
+                particle.style.transform = 'scale(' + (Math.random() + 0.5) + ')';
+                particlesDiv.appendChild(particle);
+            }
+
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes floatParticle {
+                    0% {
+                        transform: translate(0, 0) rotate(0deg) scale(1);
+                        opacity: 0;
+                    }
+                    25% {
+                        opacity: 0.5;
+                    }
+                    50% {
+                        transform: translate(${Math.random() * 30 - 15}px, ${Math.random() * 30 - 15}px) rotate(180deg) scale(${Math.random() * 0.5 + 0.8});
+                        opacity: 0.8;
+                    }
+                    75% {
+                        opacity: 0.5;
+                    }
+                    100% {
+                        transform: translate(${Math.random() * 50 - 25}px, ${Math.random() * 50 - 25}px) rotate(360deg) scale(1);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // Error handling
+        window.onerror = function(message, source, lineno, colno, error) {
+            console.log("Algo deu errado, mas estamos cuidando disso!");
+            return true;
+        };
+    </script>
 </body>
 </html>
