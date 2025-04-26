@@ -62,3 +62,17 @@
 - [ ] Controle de erros básico no JS
 - [ ] Scroll behavior otimizado
 - [ ] Word-break e overflow-x hidden para mobile
+
+---
+
+## Post vibe coding
+
+- [ ] Atualizar cores (ok no geral, mas ainda placeholders no particles, por exemplo).
+- [ ] Inserir logo real (está como texto "Vitria<span>.</span>").
+- [ ] Inserir favicon real (ainda tem placeholder /api/placeholder/32/32).
+- [ ] Substituir imagem hero (background ainda é /api/placeholder/1920/1080).
+- [ ] Substituir imagem mapa (background ainda é /api/placeholder/600/400).
+- [ ] Substituir QR Code (/api/placeholder/200/200 no src do QR).
+- [ ] Corrigir links das redes sociais no footer (estão href="#").
+- [ ] Conferir telefones, e-mails e endereços (estão genéricos).
+- [ ] Atualizar links de políticas, termos, carreiras, blog (estão placeholders #).

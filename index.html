@@ -11,10 +11,14 @@
     <meta property="og:description" content="Transformamos dados em resultados com soluções práticas e estratégicas em Inteligência Artificial.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://vitria.tech">
-    <meta property="og:image" content="img/og-image.jpg">
+    <meta property="og:image" content="vitria.jpg">
 
     <!-- Favicon settings would go here in production -->
-    <link rel="icon" href="/api/placeholder/32/32" type="image/png">
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
 
     <!-- Preload Font -->
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
@@ -24,29 +28,35 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
 
     <style>
-        /* Custom Font - In production, you would use the actual Posterama font */
-        @font-face {
-            font-family: 'Posterama';
-            src: local('Arial');
-            font-display: swap;
+        @font-face{
+            font-family: "Posterama 2001 W04 Regular";
+            src: url("fonts/Posterama 2001 W04 Regular/Web Fonts/ea250342ec4016561ba9e791c2f39c11.eot");
+            src: url("fonts/Posterama 2001 W04 Regular/Web Fonts/ea250342ec4016561ba9e791c2f39c11.eot?#iefix")format("embedded-opentype"),
+                url("fonts/Posterama 2001 W04 Regular/Web Fonts/ea250342ec4016561ba9e791c2f39c11.woff")format("woff"),
+                url("fonts/Posterama 2001 W04 Regular/Web Fonts/ea250342ec4016561ba9e791c2f39c11.woff2")format("woff2"),
+                url("fonts/Posterama 2001 W04 Regular/Web Fonts/ea250342ec4016561ba9e791c2f39c11.ttf")format("truetype"),
+                url("fonts/Posterama 2001 W04 Regular/Web Fonts/ea250342ec4016561ba9e791c2f39c11.svg#Posterama 2001 W04 Regular")format("svg");
+            font-weight:normal;
+            font-style:normal;
+            font-display:swap;
         }
 
         /* Reset & Base Styles */
         :root {
             /* Vitria Color Palette */
-            --primary: #6A64F1;      /* Violeta principal */
-            --primary-light: #8A84FF;
-            --secondary: #4361EE;    /* Azul */
-            --secondary-light: #738AFE;
-            --accent: #3CBBB1;       /* Verde */
-            --background: #FAFBFF;
-            --dark: #1A1A2E;
-            --light: #FFFFFF;
-            --gray: #5A5A75;
-            --gray-light: #E9ECEF;
+            --primary: #943FFF;          /* Vitria Violeta */
+            --primary-light: #B066FF;    /* Vitria Violeta mais claro (sugerido) */
+            --secondary: #0047AB;        /* Vitria Azul Escuro */
+            --secondary-light: #3376C5;  /* Azul Escuro mais claro (sugerido) */
+            --accent: #37DBFF;           /* Vitria Ciano */
+            --background: #FAFBFF;       /* Fundo quase branco */
+            --dark: #1A1A2E;             /* Textos escuros */
+            --light: #FFFFFF;            /* Branco */
+            --gray: #5A5A75;             /* Cinza para textos secundários */
+            --gray-light: #E9ECEF;       /* Cinza claro para fundos suaves */
 
             /* Typography */
-            --body-font: 'Posterama', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            --body-font: 'roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
             /* Transitions */
             --transition: all 0.3s ease-in-out;
@@ -244,9 +254,11 @@
         }
 
         .logo {
+            width: 2.4rem;
             font-size: 2.4rem;
             font-weight: 700;
             color: var(--primary);
+            font-family: 'Posterama 2001 W04 Regular', sans-serif;
         }
 
         .logo span {
@@ -557,7 +569,7 @@
             overflow: hidden;
             box-shadow: 0 0.8rem 2.5rem rgba(0, 0, 0, 0.1);
             height: 30rem;
-            background: #f5f5f5 url('/api/placeholder/600/400') no-repeat center/cover;
+            background: #f5f5f5 url('./images/mapa.png') no-repeat center/cover;
         }
 
         .contact-qr {
@@ -588,11 +600,13 @@
         }
 
         .footer-logo {
+            width: 2.4rem;
             font-size: 2.4rem;
             font-weight: 700;
             color: var(--light);
             margin-bottom: 2rem;
             display: inline-block;
+            font-family: 'Posterama 2001 W04 Regular', sans-serif;
         }
 
         .footer-logo span {
@@ -840,7 +854,7 @@
     <header id="header">
         <div class="container flex flex-between">
             <a href="#" class="logo">
-                Vitria<span>.</span>
+                <img src="vitria.png" alt="Vitria logo"> VITRIA
             </a>
             <nav>
                 <div class="mobile-menu-btn">
@@ -989,8 +1003,8 @@
                         </div>
                         <div class="contact-details">
                             <h3>Nosso Escritório</h3>
-                            <p>Av. Paulista, 1000 - Bela Vista<br>São Paulo - SP, 01310-100</p>
-                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
+                            <p>Independência Boulevard Square - Sala 409<br>R. Terezinha Borges dos Santos Bertelli, 15 - Panazzolo<br>Caxias do Sul - RS</p>
+                            <a href="https://www.google.com/maps/place/Independ%C3%AAncia+Boulevard+Square/@-29.17544,-51.1782922,19z/data=!3m1!4b1!4m6!3m5!1s0x951ebd006d62f9b9:0x7a18128b6cd55c36!8m2!3d-29.17544!4d-51.1776471!16s%2Fg%2F11vzpx2bng?entry=ttu&g_ep=EgoyMDI1MDQyMy4wIKXMDSoASAFQAw%3D%3D" target="_blank" rel="noopener noreferrer">Ver no Google Maps</a>
                         </div>
                     </div>
                     <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
@@ -999,7 +1013,7 @@
                         </div>
                         <div class="contact-details">
                             <h3>E-mail</h3>
-                            <p>contato@vitria.ai</p>
+                            <p>contato@vitria.tech</p>
                         </div>
                     </div>
                     <div class="contact-item" data-aos="fade-up" data-aos-delay="300">
@@ -1008,19 +1022,18 @@
                         </div>
                         <div class="contact-details">
                             <h3>Telefone</h3>
-                            <p>+55 (11) 99999-9999</p>
+                            <p>+55 (54) 99118-4622</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-right">
                     <div class="contact-map" data-aos="fade-up" data-aos-delay="100">
-                        <!-- Mapa seria carregado aqui em produção -->
                     </div>
                     <div class="contact-qr" data-aos="fade-up" data-aos-delay="200">
-                        <img src="/api/placeholder/200/200" alt="QR Code WhatsApp">
+                        <img src="images/whatsappBer.png" alt="QR Code WhatsApp">
                         <h3>Fale conosco via WhatsApp</h3>
                         <p>Escaneie o QR code ou clique no botão abaixo</p>
-                        <a href="https://wa.me/5511999999999" class="btn btn-primary">
+                        <a href="https://wa.me/5554991184622" class="btn btn-primary">
                             Iniciar conversa <i class="fab fa-whatsapp btn-icon"></i>
                         </a>
                     </div>
@@ -1034,15 +1047,13 @@
         <div class="container">
             <div class="footer-container">
                 <div class="footer-about">
-                    <a href="#" class="footer-logo">Vitria<span>.</span></a>
+                    <a href="#" class="footer-logo"><img src="vitria.png" alt="Vitria logo"> VITRIA</a>
                     <p>Transformamos dados em resultados com soluções práticas e estratégicas em Inteligência Artificial.</p>
                     <div class="footer-social">
-                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.instagram.com/vitriatech/" class="social-icon"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                <div class="footer-nav">
+                <!-- <div class="footer-nav">
                     <h4>Navegação</h4>
                     <ul>
                         <li><a href="#home">Início</a></li>
@@ -1060,7 +1071,7 @@
                         <li><a href="#">Carreiras</a></li>
                         <li><a href="#">Blog</a></li>
                     </ul>
-                </div>
+                </div> -->
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2025 Vitria. Todos os direitos reservados.</p>
@@ -1162,17 +1173,31 @@
             console.log("%cVocê gosta de desvendar códigos? Nós também.", "color: #6a0dad; font-size: 18px; font-weight: bold;");
         });
 
+        function hexToRgb(hex) {
+            hex = hex.replace('#', '');
+            const bigint = parseInt(hex, 16);
+            const r = (bigint >> 16) & 255;
+            const g = (bigint >> 8) & 255;
+            const b = bigint & 255;
+            return `${r}, ${g}, ${b}`;
+        }
+
         // Create digital particles background
         function createParticles() {
             const particlesDiv = document.querySelector('.particles');
             const particlesCount = 30;
+
+            // Captura a variável CSS
+            const rootStyles = getComputedStyle(document.documentElement);
+            const primaryColor = rootStyles.getPropertyValue('--primary').trim();
+            const primaryRgb = hexToRgb(primaryColor);
 
             for (let i = 0; i < particlesCount; i++) {
                 const particle = document.createElement('div');
                 particle.style.position = 'absolute';
                 particle.style.width = Math.random() * 6 + 1 + 'px';
                 particle.style.height = particle.style.width;
-                particle.style.backgroundColor = 'rgba(106, 100, 241, ' + (Math.random() * 0.5 + 0.1) + ')';
+                particle.style.backgroundColor = `rgba(${primaryRgb}, ${Math.random() * 0.5 + 0.1})`;
                 particle.style.borderRadius = '50%';
                 particle.style.top = Math.random() * 100 + '%';
                 particle.style.left = Math.random() * 100 + '%';
@@ -1214,5 +1239,6 @@
             return true;
         };
     </script>
+    <script type="text/javascript" src="https://db.onlinewebfonts.com/s/ea250342ec4016561ba9e791c2f39c11?family=Posterama+2001+W04+Regular"></script>
 </body>
 </html>
